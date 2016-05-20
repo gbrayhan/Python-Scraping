@@ -6,10 +6,10 @@ def link_crawler(seed_url, link_regex):
 	crawl_queue = [seed_url]
 	# keep track which URL's have seen before
 	seen = set(crawl_queue)
-	while crawl_queue:
-		url = crawl_queue.pop()
+	while crawl_queue: #siempre que exista crawl_queue
+		url = crawl_queue.pop()#Quitar de la lista y regresar ultimo elemento
 		html = urllib2.urlopen(url).read()
-		for link in get_links(html):
+		for link in get_links(html): # en get links se encuentran todas las terminaciones /###
 			# check if link matches expected regex
 			if re.match(link_regex, link):
 				# form absolute link
