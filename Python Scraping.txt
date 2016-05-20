@@ -40,4 +40,15 @@ Python Scraping
 __________________________________________________________
 
 
+Link crawler
 
+Hasta ahora, hemos puesto en marcha dos rastreadores simples que toman ventaja de la estructura de nuestro sitio Web de muestra para descargar todos los países. Estas técnicas se deben utilizar cuando esté disponible, ya que minimizan la cantidad necesaria de páginas web para descargar. Sin embargo, para otros sitios web, tenemos que hacer nuestro acto rastreador más como un usuario típico y seguir los enlaces para llegar al contenido de interés.
+
+Podríamos simplemente descargar todo el sitio web, siguiendo todos los enlaces. Sin embargo, esto podría descargar una gran cantidad de páginas web que no necesitamos. Por ejemplo, para rascar detalles de cuenta de usuario de un foro en línea, sólo representan páginas necesitan ser descargado y no hilos de discusión. El rastreador enlace desarrollado aquí utilizará una expresión regular para decidir qué páginas web para descargar. Aquí es una versión inicial del código
+
+
+El problema con la descarga / index / 1 es que sólo incluye la ruta de la página web y deja de lado el protocolo y el servidor, lo que se conoce como un vínculo relativo.
+
+Los enlaces relativos funcionan cuando se navega ya que el navegador web sabe qué página web que está viendo en ese momento. Sin embargo, urllib2 no tiene conocimiento de este contexto.
+
+Para ayudar a urllib2 localizar la página web, tenemos que convertir este vínculo en un vínculo absoluto, que incluye todos los detalles para localizar la página web. Como era de esperar, Python incluye un módulo para hacer precisamente esto, llamado urlparse. Aquí es una versión mejorada del link_crawler que utiliza el módulo urlparse para crear los enlaces absolutos:
