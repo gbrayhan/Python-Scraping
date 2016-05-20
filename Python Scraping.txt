@@ -1,0 +1,43 @@
+Python Scraping
+
+--Identifying the technology used by a website--
+
+	$ pip install builtwith
+	
+	>>>	import builtwith
+	>>> builtwith.parse('http://example.webscraping.com')
+
+	{u'javascript-frameworks': [u'jQuery', u'Modernizr', u'jQuery UI'],
+	u'programming-languages': [u'Python'],
+	u'web-frameworks': [u'Web2py', u'Twitter Bootstrap'],
+	u'web-servers': [u'Nginx']}
+
+
+--Finding the owner of a website--
+	
+	$ pip install python-whois
+	>>> import whois
+	>>> print whois.whois('appspot.com')
+
+	{
+	...	
+	"name_servers": [
+	"NS1.GOOGLE.COM",
+	"NS2.GOOGLE.COM",
+	"NS3.GOOGLE.COM",
+	"NS4.GOOGLE.COM",
+	"ns4.google.com",
+	"ns2.google.com",
+	"ns1.google.com",
+	"ns3.google.com"
+	],
+	"org": "Google Inc.",
+	"emails": [
+	"abusecomplaints@markmonitor.com",
+	"dns-admin@google.com"
+	]
+	}
+__________________________________________________________
+
+
+
